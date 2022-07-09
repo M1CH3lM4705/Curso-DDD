@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Curso_DDD.Exercicio7;
+
 namespace Curso_DDD.Exercicio6
 {
     public class CriadorDeNotaFiscal
@@ -18,16 +20,16 @@ namespace Curso_DDD.Exercicio6
 
         public NotaFiscal Constroi()
         {
-            NotaFiscal nf = NotaFiscal(RazaoSocial, Cnpj, Data, ValorTotal, impostos, todosItens, Observacoes);
+            NotaFiscal nf = new NotaFiscal(RazaoSocial, Cnpj, Data, ValorTotal, impostos, todosItens, Observacoes);
             
-            todasAcoesASeremExecutadas.forEach(acao => acao.Executa(nf));
+            todasAcoesASeremExecutadas.ToList().ForEach(acao => acao.Executa(nf));
 
             return nf;
         }
 
         public void AdicionaAcao(AcaoAposGerarNota novaAcao)
         {
-            this.todasAcoesASeremExecutadas.Add(novaAcao)
+            this.todasAcoesASeremExecutadas.Add(novaAcao);
         }
 
         public CriadorDeNotaFiscal ParaEmpresa(string razaoSocial)

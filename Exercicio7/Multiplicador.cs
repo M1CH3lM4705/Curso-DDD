@@ -1,3 +1,5 @@
+using Curso_DDD.Exercicio6;
+
 namespace Curso_DDD.Exercicio7
 {
     public class Multiplicador
@@ -12,7 +14,7 @@ namespace Curso_DDD.Exercicio7
 
         public void Executa(NotaFiscal nf)
         {
-            nf.Valor *= Fator
+            nf.ValorBruto *= Fator;
         }
     }
 }
