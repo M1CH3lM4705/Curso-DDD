@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Curso_DDD.Exercicio6;
 using Curso_DDD.parte2.FlyWeight;
+using Curso_DDD.parte2.Interpreter;
+using Curso_DDD.parte2.Memento;
 
 namespace Curso_DDD
 {
@@ -41,20 +43,42 @@ namespace Curso_DDD
 
             // Console.WriteLine(nf.ValorBruto);
 
-            NotasMusicais notas = new NotasMusicais();
+            // NotasMusicais notas = new NotasMusicais();
 
-            IList<INota> musica = new List<INota>()
-            {
-                notas.Pega("do"),
-                notas.Pega("re"),
-                notas.Pega("mi"),
-                notas.Pega("fa"),   
-                notas.Pega("fa"),   
-                notas.Pega("fa"),   
-            };
+            // IList<INota> musica = new List<INota>()
+            // {
+            //     notas.Pega("do"),
+            //     notas.Pega("re"),
+            //     notas.Pega("mi"),
+            //     notas.Pega("fa"),   
+            //     notas.Pega("fa"),   
+            //     notas.Pega("fa"),   
+            // };
 
-            Piano piano = new Piano();
-            piano.Toca(musica);
+            // Piano piano = new Piano();
+            // piano.Toca(musica);
+
+            // Historico historico = new Historico();
+            // Contrato c = new Contrato(DateTime.Now, "Michel", TipoContrato.Novo);
+            // historico.Adiciona(c.SalvaEstado());
+
+            // c.Avanca();
+
+            // historico.Adiciona(c.SalvaEstado());
+
+            // c.Avanca();
+            // historico.Adiciona(c.SalvaEstado());
+
+            // Console.WriteLine(historico.Pega(2).Contrato.Tipo);
+
+            // Console.ReadKey();
+
+            IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
+            IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
+            IExpressao soma = new Soma(esquerda, direita);
+
+            Console.WriteLine(soma.Avalia());
+            
         }
     }
 }
