@@ -1,3 +1,5 @@
+using Curso_DDD.parte2.Visitor;
+
 namespace Curso_DDD.parte2.Interpreter
 {
     class Divisao : IExpressao
@@ -9,6 +11,11 @@ namespace Curso_DDD.parte2.Interpreter
         {
             this.esquerda = esquerda;
             this.direita = direita;
+        }
+
+        public void Aceita(IVisitor impressora)
+        {
+            throw new System.NotImplementedException();
         }
 
         public int Avalia()
