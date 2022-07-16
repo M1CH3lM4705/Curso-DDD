@@ -1,17 +1,24 @@
+using Curso_DDD.parte2.Visitor;
+
 namespace Curso_DDD.parte2.Interpreter
 {
-    public class Numero : IExpressao
+    class Numero : IExpressao
     {
-        private int numero;
+        public int Valor {get; private set;}
 
-        public Numero(int Numero)
+        public Numero(int numero)
         {
-            this.numero = Numero;
+            Valor = numero;
         }
 
         public int Avalia()
         {
-            return this.numero;
+            return this.Valor;
+        }
+
+        public void Aceita(IVisitor impressora)
+        {
+            impressora.ImprimeNumero(this);
         }
     }
 }

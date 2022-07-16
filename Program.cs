@@ -4,6 +4,7 @@ using Curso_DDD.Exercicio6;
 using Curso_DDD.parte2.FlyWeight;
 using Curso_DDD.parte2.Interpreter;
 using Curso_DDD.parte2.Memento;
+using Curso_DDD.parte2.Visitor;
 
 namespace Curso_DDD
 {
@@ -78,7 +79,8 @@ namespace Curso_DDD
             IExpressao soma = new Soma(esquerda, direita);
 
             Console.WriteLine(soma.Avalia());
-            
+            Impressora impressora = new Impressora();
+            soma.Aceita(impressora);
         }
     }
 }
