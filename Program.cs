@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Curso_DDD.Exercicio6;
+using Curso_DDD.parte2.Bridges;
 using Curso_DDD.parte2.FlyWeight;
 using Curso_DDD.parte2.Interpreter;
 using Curso_DDD.parte2.Memento;
@@ -74,13 +75,18 @@ namespace Curso_DDD
 
             // Console.ReadKey();
 
-            IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
-            IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
-            IExpressao soma = new Soma(esquerda, direita);
+            // IExpressao esquerda = new Soma(new Numero(1), new Numero(10));
+            // IExpressao direita = new Subtracao(new Numero(20), new Numero(10));
+            // IExpressao soma = new Soma(esquerda, direita);
 
-            Console.WriteLine(soma.Avalia());
-            Impressora impressora = new Impressora();
-            soma.Aceita(impressora);
+            // Console.WriteLine(soma.Avalia());
+            // Impressora impressora = new Impressora();
+            // soma.Aceita(impressora);
+
+            IMensagem mensagem = new MensagemAdministrativa("Michel");
+            IEnviador enviador = new EnviaPorEmail();
+            mensagem.Enviador = enviador;
+            mensagem.Envia();
         }
     }
 }

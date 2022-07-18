@@ -8,8 +8,8 @@ namespace Curso_DDD.parte2.Visitor
         public void ImprimeSoma(Soma soma)
         {
             Console.Write("(");
-            soma.Esquerda.Aceita(this);
             Console.Write("+");
+            soma.Esquerda.Aceita(this);
             soma.Direita.Aceita(this);
             Console.Write(")");
 
@@ -18,8 +18,8 @@ namespace Curso_DDD.parte2.Visitor
         public void ImprimeSubtracao(Subtracao subtracao)
         {
             Console.Write("(");
+            Console.Write("-");
             subtracao.Esquerda.Aceita(this);
-            Console.Write("+");
             subtracao.Direita.Aceita(this);
             Console.Write(")");
 
@@ -27,11 +27,7 @@ namespace Curso_DDD.parte2.Visitor
         
         public void ImprimeNumero(Numero numero)
         {
-            Console.Write("(");
-
-            Console.Write("+");
-
-            Console.Write(")");
+            Console.Write(numero.Valor);
 
         }
         
