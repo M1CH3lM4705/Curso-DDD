@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using Curso_DDD.Exercicio6;
+using Curso_DDD.parte2.Adapter;
 using Curso_DDD.parte2.Bridges;
 using Curso_DDD.parte2.Command;
 using Curso_DDD.parte2.FlyWeight;
@@ -89,16 +92,25 @@ namespace Curso_DDD
             // mensagem.Enviador = enviador;
             // mensagem.Envia();
 
-            FilaDeTrabalho fila = new FilaDeTrabalho();
-            Pedido pedido1 = new Pedido("Michel", 100);
-            Pedido pedido2 = new Pedido("Michel", 50);
+            // FilaDeTrabalho fila = new FilaDeTrabalho();
+            // Pedido pedido1 = new Pedido("Michel", 100);
+            // Pedido pedido2 = new Pedido("Michel", 50);
             
-            fila.Adiciona(new PagaPedido(pedido1));
-            fila.Adiciona(new PagaPedido(pedido2));
+            // fila.Adiciona(new PagaPedido(pedido1));
+            // fila.Adiciona(new PagaPedido(pedido2));
 
-            fila.Adiciona(new FinalizaPedido(pedido1));
+            // fila.Adiciona(new FinalizaPedido(pedido1));
 
-            fila.Processa();
+            // fila.Processa();
+
+            Cliente cliente = new Cliente();
+            cliente.Nome = "Michel";
+            cliente.Endereco = "Rua Teste";
+            cliente.DataDeNascimento = DateTime.Now;
+
+            var xml = new GeradorXml().GeraXml(cliente);
+
+            Console.WriteLine(xml);
         }
     }
 }
