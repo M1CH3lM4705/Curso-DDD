@@ -103,14 +103,14 @@ namespace Curso_DDD
 
             // fila.Processa();
 
-            Cliente cliente = new Cliente();
-            cliente.Nome = "Michel";
-            cliente.Endereco = "Rua Teste";
-            cliente.DataDeNascimento = DateTime.Now;
+            // Cliente cliente = new Cliente();
+            // cliente.Nome = "Michel";
+            // cliente.Endereco = "Rua Teste";
+            // cliente.DataDeNascimento = DateTime.Now;
 
-            var xml = new GeradorXml().GeraXml(cliente);
+            // var xml = new GeradorXml().GeraXml(cliente);
 
-            Console.WriteLine(xml);
+            // Console.WriteLine(xml);
         }
     }
 }
