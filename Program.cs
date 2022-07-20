@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Curso_DDD.Exercicio6;
 using Curso_DDD.parte2.Bridges;
+using Curso_DDD.parte2.Command;
 using Curso_DDD.parte2.FlyWeight;
 using Curso_DDD.parte2.Interpreter;
 using Curso_DDD.parte2.Memento;
@@ -83,10 +84,21 @@ namespace Curso_DDD
             // Impressora impressora = new Impressora();
             // soma.Aceita(impressora);
 
-            IMensagem mensagem = new MensagemAdministrativa("Michel");
-            IEnviador enviador = new EnviaPorEmail();
-            mensagem.Enviador = enviador;
-            mensagem.Envia();
+            // IMensagem mensagem = new MensagemAdministrativa("Michel");
+            // IEnviador enviador = new EnviaPorEmail();
+            // mensagem.Enviador = enviador;
+            // mensagem.Envia();
+
+            FilaDeTrabalho fila = new FilaDeTrabalho();
+            Pedido pedido1 = new Pedido("Michel", 100);
+            Pedido pedido2 = new Pedido("Michel", 50);
+            
+            fila.Adiciona(new PagaPedido(pedido1));
+            fila.Adiciona(new PagaPedido(pedido2));
+
+            fila.Adiciona(new FinalizaPedido(pedido1));
+
+            fila.Processa();
         }
     }
 }
