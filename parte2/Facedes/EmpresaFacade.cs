@@ -21,11 +21,14 @@ namespace Curso_DDD.parte2.Facedes
         {
             Cobranca cobranca = new Cobranca(tipo, fatura);
             cobranca.Emite();
+            return cobranca;
         }
 
         public ContatoCliente FazContato(Cliente cliente, Cobranca cobranca)
         {
-            FazContato
+            ContatoCliente contato = new ContatoCliente(cliente, cobranca);
+            contato.Dispara();
+            return contato;
         }
     }
 }
